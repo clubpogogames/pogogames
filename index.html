@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pogo Games Login Account Guide</title>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background-color: #0074cc;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-buttons a {
+      background-color: #fff;
+      color: #0074cc;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Marquee */
+    .marquee {
+      background: #ffc107;
+      color: #000;
+      padding: 0.5rem 2rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1587582423110-ec7b9976de5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: black;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: #1a73e8;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-buttons a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+    
+    .service-section {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #1a73e8;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-box {
+      background: #fff;
+      padding: 20px 20px 20px 30px;
+      border-left: 5px solid #1a73e8;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .service-box.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-icon {
+      font-size: 30px;
+      color: #1a73e8;
+      margin-bottom: 15px;
+    }
+
+    .service-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .service-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+    
+    /* ========== Banner Section ========== */
+    .banner {
+      background: linear-gradient(135deg, #0074cc, #00bcd4);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top:50px;
+    }
+
+    .banner .subtitle {
+      font-size: 2rem;
+      font-weight: 600;
+      border-bottom: 3px solid white;
+      display: inline-block;
+      padding-bottom: 8px;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .banner p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      animation: fadeInUp 1.5s ease 0.5s forwards;
+      opacity: 0;
+    }
+
+    /* ========== Benefits Section ========== */
+    .benefits-section {
+      padding: 4rem 2rem;
+      background: #ffffff;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .benefit-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      transform: translateY(50px);
+      opacity: 0;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(0) scale(1.03);
+      box-shadow: 0 10px 24px rgba(0, 116, 204, 0.2);
+      background: #e3f2fd;
+    }
+
+    .benefit-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0074cc;
+      margin-bottom: 0.8rem;
+    }
+
+    .benefit-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ========== Animations ========== */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .active {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: all 0.6s ease;
+    }
+
+    /* ========== Responsive Adjustments ========== */
+    @media (max-width: 600px) {
+      .banner .subtitle {
+        font-size: 1.5rem;
+      }
+
+      .banner p {
+        font-size: 1rem;
+      }
+
+      .benefit-card {
+        padding: 1.5rem;
+      }
+    }
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Pogo Games</div>
+    <div class="nav-buttons">
+      <a href="#">Login</a>
+      <a href="#">Support</a>
+    </div>
+  </header>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-text">🎮 Welcome to the Ultimate Guide for Your Pogo Games Login Account – Tips, Features, and Troubleshooting! 🎮</div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Pogo Games Login Account: Everything You Need to Know</h1>
+    <p>Your complete guide to accessing, managing, and enjoying Pogo's vast world of casual online games.</p>
+  </section>
+
+  <!-- Content Container -->
+  <div class="container">
+    <p>In the world of online casual gaming, Pogo stands out as one of the oldest and most popular platforms. Operated by Electronic Arts (EA), Pogo has carved a niche for itself among players who love puzzles, card games, board games, and word challenges. With thousands of users logging in daily to play games like Scrabble, Poppit!, Bejeweled, and Monopoly, having a Pogo games login account is essential for accessing and enjoying everything the platform has to offer.</p>
+
+    <p>In this comprehensive guide, we’ll take a deep dive into the Pogo games login account process, account features, benefits, troubleshooting tips, and everything else you need to have a seamless gaming experience on Pogo.</p>
+
+    <div class="section-title">What is a Pogo Games Login Account?</div>
+    <p>A Pogo games login account is your personal gateway to the Pogo gaming platform. It allows you to access the full range of games, save progress, earn rewards, and connect with other players across the world...</p>
+
+    <div class="section-title">Features and Benefits of Having a Pogo Games Login Account</div>
+    <ul>
+      <li><strong>Access to Hundreds of Games:</strong> From Solitaire to Word Whomp, enjoy a wide variety.</li>
+      <li><strong>Personalized Game Progress:</strong> Save and sync progress across devices.</li>
+      <li><strong>Daily and Weekly Challenges:</strong> Earn badges and rewards for completing tasks.</li>
+      <li><strong>Club Pogo Membership Perks:</strong> Access to premium, ad-free experiences.</li>
+      <li><strong>Multiplayer and Social Connectivity:</strong> Chat and compete with other players.</li>
+    </ul>
+
+    <div class="section-title">How to Create a Pogo Games Login Account</div>
+    <p>Creating a Pogo account is quick: provide your name, email, username, and password. Agree to EA’s terms, then customize your profile and start playing.</p>
+
+    <div class="section-title">Logging into Your Pogo Games Login Account</div>
+    <p>Login using your registered email or username and password. If linked to EA, you’ll log in through the EA system for added security.</p>
+
+    <div class="section-title">Tips for Securing Your Pogo Login Account</div>
+    <ul>
+      <li>Use a strong, unique password.</li>
+      <li>Never share your login details.</li>
+      <li>Enable two-factor authentication if available.</li>
+      <li>Keep recovery options updated.</li>
+    </ul>
+
+    <div class="section-title">Common Login Issues and How to Fix Them</div>
+    <ul>
+      <li><strong>Forgotten Password:</strong> Use the recovery link to reset.</li>
+      <li><strong>Incorrect Username or Email:</strong> Double-check for typos.</li>
+      <li><strong>EA Account Integration:</strong> Use your EA credentials if accounts are merged.</li>
+      <li><strong>Browser Compatibility:</strong> Clear cache or try another browser.</li>
+    </ul>
+
+    <div class="section-title">Managing Your Pogo Games Login Account Settings</div>
+    <p>Once logged in, update your profile, avatar, security settings, notifications, and Club Pogo subscriptions from the dashboard.</p>
+
+    <div class="section-title">Club Pogo and Premium Features</div>
+    <p>Upgrade your account for ad-free gameplay, exclusive games, bonus challenges, and priority support. Worth it for frequent users!</p>
+
+    <div class="section-title">Pogo Games on Mobile: Using Your Login Account</div>
+    <p>Use the same login on Android or iOS. Sync progress, access purchases, and continue gaming on the go.</p>
+
+    <div class="section-title">Troubleshooting Account Recovery for Pogo Games</div>
+    <ul>
+      <li>Use EA’s recovery tools if your account is linked.</li>
+      <li>Contact support with proof if locked out.</li>
+      <li>Check spam folders for recovery emails.</li>
+      <li>Reset your password if you detect suspicious activity.</li>
+    </ul>
+
+    <div class="section-title">Why You Should Keep Your Pogo Games Login Account Active</div>
+    <p>Pogo may delete inactive accounts. Log in regularly to maintain your progress, access new games, and benefit from promotions and updates.</p>
+
+    <div class="section-title">Final Thoughts on Pogo Games Login Account</div>
+    <p>Your Pogo login is your key to a rich gaming experience. From saving progress to unlocking premium features, staying active and secure ensures the best experience on one of the web’s most enduring gaming platforms.</p>
+  </div><br>
+  
+   <section class="service-section">
+    <div class="section-subtitle">Pogo Games Services</div>
+    <div class="services-container">
+
+      <div class="service-box">
+        <div class="service-icon"><i class="fas fa-gamepad"></i></div>
+        <div class="service-title">Access to Hundreds of Games</div>
+        <div class="service-text">
+          Enjoy classic titles like Solitaire, Scrabble, Word Whomp, and Bejeweled with your Pogo login account.
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-icon"><i class="fas fa-save"></i></div>
+        <div class="service-title">Saved Game Progress</div>
+        <div class="service-text">
+          Automatically sync your progress across devices and never lose your achievements or high scores.
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-icon"><i class="fas fa-trophy"></i></div>
+        <div class="service-title">Daily & Weekly Challenges</div>
+        <div class="service-text">
+          Complete unique challenges to earn tokens, badges, and exclusive in-game rewards every week.
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-icon"><i class="fas fa-user-shield"></i></div>
+        <div class="service-title">Secure Account Login</div>
+        <div class="service-text">
+          Protect your profile with EA login security, password recovery tools, and optional two-factor authentication.
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-icon"><i class="fas fa-users"></i></div>
+        <div class="service-title">Multiplayer Connectivity</div>
+        <div class="service-text">
+          Play and chat with friends worldwide. Join teams, share achievements, and climb the leaderboard.
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-icon"><i class="fas fa-star"></i></div>
+        <div class="service-title">Club Pogo Premium</div>
+        <div class="service-text">
+          Upgrade for ad-free gameplay, bonus games, early releases, and exclusive member-only content.
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="subtitle">Pogo Games Benefits</div>
+    <p>
+      Discover all the amazing perks of having a Pogo Games account — from exclusive challenges and game tracking to social play and premium content.
+    </p>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-title">🎮 Hundreds of Games</div>
+        <div class="benefit-desc">
+          Access a wide range of games including puzzle, word, card, and hidden object games.
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-title">📊 Save Game Progress</div>
+        <div class="benefit-desc">
+          Resume your games anytime, anywhere. Your data is securely stored to track achievements.
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-title">🏆 Daily & Weekly Rewards</div>
+        <div class="benefit-desc">
+          Unlock tokens, badges, and XP by completing challenges that refresh regularly.
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-title">✨ Club Pogo Access</div>
+        <div class="benefit-desc">
+          Upgrade to Club Pogo for premium games, no ads, and early access to new features.
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-title">🌐 Multiplayer Fun</div>
+        <div class="benefit-desc">
+          Compete with friends, chat, and climb the leaderboard in real-time multiplayer action.
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-title">📱 Mobile Sync</div>
+        <div class="benefit-desc">
+          Play on the go using the Pogo mobile app — your account syncs progress across devices.
+        </div>
+      </div>
+    </div>
+  </section>
+  
+   <script>
+    // Simple scroll animation
+    const boxes = document.querySelectorAll('.service-box');
+    window.addEventListener('scroll', () => {
+      boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        const trigger = window.innerHeight - 100;
+        if (boxTop < trigger) {
+          box.classList.add('show');
+        }
+      });
+    });
+    // Trigger animation on load
+    window.dispatchEvent(new Event('scroll'));
+    
+     const cards = document.querySelectorAll('.benefit-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
